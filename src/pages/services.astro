@@ -1,0 +1,87 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { whatsappUrl, daysmartUrl, serviceCategories } from '../data/siteData.js';
+---
+
+<Layout
+  title="Services | Crème De La Crème Spa & Beauty"
+  description="Explore our full menu of luxury spa services in Georgetown, Guyana — facials, massages, hair care, and nail treatments."
+>
+
+  
+  <section
+    class="relative pt-40 pb-24 px-6 text-center"
+    style="background: radial-gradient(ellipse at 60% 0%, #2D1035 0%, #0D0A0F 70%);"
+  >
+    <div class="absolute inset-0 pointer-events-none opacity-[0.025]" style="background-image: linear-gradient(rgba(212,175,55,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(212,175,55,0.5) 1px, transparent 1px); background-size: 80px 80px;"></div>
+    <div class="relative z-10 max-w-2xl mx-auto">
+      <p class="text-xs tracking-[0.35em] uppercase mb-4 gold-text" style="font-family:'Montserrat',sans-serif;">The Menu</p>
+      <h1 class="font-light leading-tight mb-4" style="font-family:'Cormorant Garamond',serif; font-size:clamp(2.5rem,6vw,5rem); color:#F5EFE6;">Our Services</h1>
+      <div class="section-divider mb-6"></div>
+      <p class="text-sm leading-relaxed" style="font-family:'Montserrat',sans-serif; font-weight:400; color:#D4C9B5;">
+        Every treatment is designed to give you a specific result —<br class="hidden sm:block" /> delivered by experts who have made this their craft.
+      </p>
+    </div>
+  </section>
+
+  
+  {serviceCategories.map((cat, i) => (
+    <section
+      id={cat.id}
+      class="py-24 px-6"
+      style={`background: ${i % 2 === 0 ? '#0D0A0F' : '#0A0710'};`}
+    >
+      <div class="max-w-7xl mx-auto">
+        <!-- Category Header -->
+        <div class="mb-14 lg:flex lg:items-end lg:justify-between">
+          <div>
+            <p class="text-xs tracking-[0.25em] uppercase mb-2 gold-text" style="font-family:'Montserrat',sans-serif;">0{i + 1}</p>
+            <h2 class="font-light leading-tight" style="font-family:'Cormorant Garamond',serif; font-size:clamp(1.8rem,4vw,3rem); color:#F5EFE6;">{cat.label}</h2>
+            <p class="text-sm mt-2 italic" style="font-family:'Cormorant Garamond',serif; color:#C4AE8E; font-size:1rem;">{cat.tagline}</p>
+          </div>
+          <a
+            href={whatsappUrl}
+          >Book This Service</a>
+        </div>
+
+        
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {cat.services.map((svc) => (
+            <div class="luxury-card rounded-sm p-7">
+              <div class="flex justify-between items-start mb-4">
+                <h3 class="font-light leading-snug pr-4" style="font-family:'Cormorant Garamond',serif; font-size:1.15rem; color:#F5EFE6;">{svc.name}</h3>
+                <span class="text-xs shrink-0 px-2 py-1 rounded-sm" style="font-family:'Montserrat',sans-serif; background:rgba(212,175,55,0.12); color:#E8CC6A; border:1px solid rgba(212,175,55,0.3); white-space:nowrap;">{svc.duration}</span>
+              </div>
+              <p class="leading-relaxed" style="font-family:'Montserrat',sans-serif; color:#C4A882; font-weight:400; font-size:0.875rem; line-height:1.75;">{svc.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  ))}
+
+  
+  <section class="py-24 px-6 text-center" style="background: radial-gradient(ellipse at center, #1A0A1E 0%, #0D0A0F 70%);">
+    <div class="max-w-xl mx-auto">
+      <div class="section-divider mb-8"></div>
+      <h2 class="font-light mb-4" style="font-family:'Cormorant Garamond',serif; font-size:clamp(1.8rem,4vw,2.8rem); color:#F5EFE6;">Ready to experience the difference?</h2>
+      <p class="text-sm mb-10" style="font-family:'Montserrat',sans-serif; font-weight:400; color:#C4A882;">Reserve instantly on WhatsApp — we respond fast, and we'll make sure every detail is ready for your arrival.</p>
+      <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-gold text-xs px-9 py-4 w-full sm:w-auto justify-center"
+        >Book via WhatsApp</a>
+        <a
+          href={daysmartUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-outline-gold text-xs px-9 py-4 w-full sm:w-auto justify-center"
+        >Online Calendar</a>
+      </div>
+      <div class="section-divider mt-10"></div>
+    </div>
+  </section>
+
+</Layout>

@@ -1,0 +1,98 @@
+---
+import { whatsappUrl, footerNavLinks } from '../data/siteData.js';
+const navLinks = footerNavLinks;
+---
+
+<header id="navbar" class="fixed top-0 left-0 right-0 z-50 transition-all duration-500">
+  <div class="max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between h-20">
+
+    <!-- Brand -->
+    <a href="/" class="flex flex-col leading-none group" aria-label="Crème De La Crème Spa & Beauty Home">
+      <span class="text-xs tracking-[0.25em] uppercase font-semibold" style="font-family:'Montserrat',sans-serif; color:#D4C9B5; letter-spacing:0.22em;">Crème De La Crème</span>
+      <span class="text-xl tracking-[0.08em] font-normal gold-text" style="font-family:'Cormorant Garamond',serif;">Spa &amp; Beauty</span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden lg:flex items-center gap-10">
+      {navLinks.map(link => (
+        <a href={link.href} class="nav-link">{link.label}</a>
+      ))}
+    </nav>
+
+    <!-- Desktop Book CTA -->
+    <a
+      href={whatsappUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="hidden lg:inline-flex btn-gold text-xs"
+    >
+      Book Now
+    </a>
+
+    <!-- Mobile Hamburger -->
+    <button
+      id="mobile-menu-btn"
+      class="lg:hidden flex flex-col gap-1.5 p-2 cursor-pointer"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+    >
+      <span class="block w-6 h-px bg-[#D4AF37] transition-all duration-300 origin-center" id="bar1"></span>
+      <span class="block w-6 h-px bg-[#D4AF37] transition-all duration-300" id="bar2"></span>
+      <span class="block w-6 h-px bg-[#D4AF37] transition-all duration-300 origin-center" id="bar3"></span>
+    </button>
+  </div>
+
+  <!-- Mobile Menu Drawer -->
+  <div
+    id="mobile-menu"
+    class="lg:hidden hidden flex-col px-6 pb-8 pt-4 border-t border-[rgba(212,175,55,0.15)]"
+    style="background: rgba(13,10,15,0.97); backdrop-filter: blur(20px);"
+  >
+    {navLinks.map(link => (
+      <a href={link.href} class="nav-link py-4 border-b border-[rgba(212,175,55,0.12)] block" style="font-size:0.78rem; font-weight:500; color:#D4C9B5;">
+        {link.label}
+      </a>
+    ))}
+    <a
+      href={whatsappUrl}
+      target="_blank"
+      rel="noopener noreferrer"
+      class="btn-gold mt-8 w-full justify-center"
+    >
+      Book Now
+    </a>
+  </div>
+</header>
+
+<script>
+  // Scroll effect: add glass background after scrolling
+  const navbar = document.getElementById('navbar')!;
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 40) {
+      navbar.style.background = 'rgba(13,10,15,0.95)';
+      navbar.style.backdropFilter = 'blur(24px)';
+      navbar.style.borderBottom = '1px solid rgba(212,175,55,0.15)';
+    } else {
+      navbar.style.background = 'transparent';
+      navbar.style.backdropFilter = 'none';
+      navbar.style.borderBottom = 'none';
+    }
+  });
+
+  // Mobile menu toggle
+  const btn = document.getElementById('mobile-menu-btn')!;
+  const menu = document.getElementById('mobile-menu')!;
+  const bar1 = document.getElementById('bar1')!;
+  const bar2 = document.getElementById('bar2')!;
+  const bar3 = document.getElementById('bar3')!;
+
+  btn.addEventListener('click', () => {
+    const open = menu.classList.contains('hidden');
+    menu.classList.toggle('hidden', !open);
+    menu.classList.toggle('flex', open);
+    bar1.style.transform = open ? 'translateY(6px) rotate(45deg)' : '';
+    bar2.style.opacity = open ? '0' : '1';
+    bar3.style.transform = open ? 'translateY(-6px) rotate(-45deg)' : '';
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+</script>

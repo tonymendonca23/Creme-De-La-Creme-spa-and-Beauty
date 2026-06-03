@@ -1,0 +1,130 @@
+---
+import Layout from '../layouts/Layout.astro';
+import {
+  whatsappUrl,
+  daysmartUrl,
+  contactPhone,
+  locationAddress,
+  businessHours,
+  contactIntro,
+  contactBookingCard,
+} from '../data/siteData.js';
+
+// Build contact detail cards from siteData variables
+const contactDetails = [
+  {
+    label: "WhatsApp & Phone",
+    value: contactPhone,
+    href:  whatsappUrl,
+    cta:   "Message us on WhatsApp",
+  },
+  {
+    label: "Online Booking",
+    value: "cdlcspabeauty.mysalononline.com",
+    href:  daysmartUrl,
+    cta:   "Book via Online Calendar",
+  },
+  {
+    label: "Address",
+    value: locationAddress,
+    href:  null,
+    cta:   null,
+  },
+];
+---
+
+<Layout
+  title="Contact | Crème De La Crème Spa & Beauty"
+  description="Get in touch with Crème De La Crème Spa & Beauty in Georgetown, Guyana. Book via WhatsApp or our online calendar."
+>
+
+  <!-- Hero -->
+  <section
+    class="relative pt-40 pb-24 px-6 text-center"
+    style="background: radial-gradient(ellipse at 50% 0%, #2D1035 0%, #0D0A0F 70%);"
+  >
+    <div class="absolute inset-0 pointer-events-none opacity-[0.025]" style="background-image: linear-gradient(rgba(212,175,55,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(212,175,55,0.5) 1px, transparent 1px); background-size: 80px 80px;"></div>
+    <div class="relative z-10 max-w-2xl mx-auto">
+      <p class="text-xs tracking-[0.35em] uppercase mb-4 gold-text" style="font-family:'Montserrat',sans-serif;">Get in Touch</p>
+      <h1 class="font-light leading-tight mb-4" style="font-family:'Cormorant Garamond',serif; font-size:clamp(2.5rem,6vw,5rem); color:#F5EFE6;">Contact Us</h1>
+      <div class="section-divider mb-6"></div>
+      <p class="text-sm leading-relaxed" style="font-family:'Montserrat',sans-serif; font-weight:400; color:#D4C9B5;">{contactIntro}</p>
+    </div>
+  </section>
+
+  <!-- Contact Grid -->
+  <section class="py-24 px-6" style="background:#0D0A0F;">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
+
+      <!-- Contact Detail cards -->
+      <div class="space-y-6">
+        {contactDetails.map((c) => (
+          <div class="luxury-card rounded-sm p-8">
+            <p class="text-xs tracking-[0.2em] uppercase mb-3 gold-text" style="font-family:'Montserrat',sans-serif;">{c.label}</p>
+            <p class="text-sm mb-4 leading-relaxed" style="font-family:'Montserrat',sans-serif; font-weight:400; color:#D4C9B5;">{c.value}</p>
+            {c.href && c.cta && (
+              <a href={c.href} target="_blank" rel="noopener noreferrer" class="nav-link text-xs flex items-center gap-2" style="font-size:0.7rem;">
+                {c.cta}
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+                </svg>
+              </a>
+            )}
+          </div>
+        ))}
+
+        <!-- Hours — loop over businessHours from siteData.js -->
+        <div class="luxury-card rounded-sm p-8">
+          <p class="text-xs tracking-[0.2em] uppercase mb-6 gold-text" style="font-family:'Montserrat',sans-serif;">Opening Hours</p>
+          <ul class="space-y-4">
+            {businessHours.map((h) => (
+              <li class="flex justify-between items-center border-b pb-4" style="border-color:rgba(212,175,55,0.1);">
+                <span class="text-sm" style="font-family:'Montserrat',sans-serif; font-weight:400; color:#D4C9B5;">{h.day}</span>
+                <span class="text-sm font-medium gold-text" style="font-family:'Montserrat',sans-serif;">{h.time}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <!-- Map + Primary Book CTA -->
+      <div class="flex flex-col gap-6">
+        <div class="luxury-card rounded-sm overflow-hidden" style="height:360px;">
+          <iframe
+            title="Crème De La Crème Spa & Beauty Location"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.9!2d-58.161!3d6.808!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8d5995c67a0b!2sDelph+Ave%2C+Georgetown%2C+Guyana!5e0!3m2!1sen!2sgy!4v1"
+            width="100%"
+            height="360"
+            style="border:0; filter: saturate(0.65) brightness(0.85) sepia(0.2);"
+            allowfullscreen
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+          ></iframe>
+        </div>
+
+        <!-- Booking CTA card — text from contactBookingCard in siteData.js -->
+        <div class="luxury-card rounded-sm p-8 text-center">
+          <p class="text-xs tracking-[0.2em] uppercase mb-2 gold-text" style="font-family:'Montserrat',sans-serif;">{contactBookingCard.eyebrow}</p>
+          <h3 class="font-light mb-3" style="font-family:'Cormorant Garamond',serif; font-size:1.5rem; color:#F5EFE6;">{contactBookingCard.heading}</h3>
+          <p class="text-xs mb-5" style="font-family:'Montserrat',sans-serif; color:#C4A882; font-weight:400; font-size:0.825rem;">{contactBookingCard.body}</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center">
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-gold text-xs px-7 py-3.5 justify-center"
+            >{contactBookingCard.ctaPrimary}</a>
+            <a
+              href={daysmartUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="btn-outline-gold text-xs px-7 py-3.5 justify-center"
+            >{contactBookingCard.ctaSecond}</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+</Layout>
