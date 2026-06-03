@@ -9,6 +9,7 @@ import {
   locationShort,
   footerTagline,
   footerNavLinks,
+  socials,
 } from '../data/siteData.js';
 
 interface Props {
@@ -55,6 +56,20 @@ const {
           <p class="text-xs tracking-[0.25em] uppercase mb-1" style="font-family:'Montserrat',sans-serif; color:#D4C9B5;">Crème De La Crème</p>
           <p class="text-2xl font-light gold-text mb-4" style="font-family:'Cormorant Garamond',serif;">Spa &amp; Beauty</p>
           <p class="text-sm leading-relaxed" style="color:#C8B89A; font-family:'Montserrat',sans-serif; font-weight:400;">{footerTagline}</p>
+          <!-- Social icons -->
+          <div class="flex items-center gap-4 mt-5">
+            {socials.map(s => (
+              <a
+                href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={s.label}
+                class="transition-opacity duration-200 hover:opacity-100"
+                style="color:#D4AF37; opacity:0.65;"
+                set:html={s.icon}
+              />
+            ))}
+          </div>
         </div>
         <div>
           <p class="text-xs tracking-[0.2em] uppercase mb-5 gold-text" style="font-family:'Montserrat',sans-serif;">Navigate</p>
