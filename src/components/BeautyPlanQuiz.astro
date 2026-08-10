@@ -1,0 +1,222 @@
+---
+// Interactive lead-capture quiz.
+// Collects goal, concern, timing, budget + name, then opens WhatsApp
+// with a pre-filled message so the lead lands directly in the spa's inbox.
+import { quizConfig, whatsappNumber } from '../data/siteData.js';
+---
+
+<section id="beauty-plan" class="py-28 px-6" style="background: radial-gradient(ellipse at 50% 0%, #2D1035 0%, #0D0A0F 65%);">
+  <div class="max-w-3xl mx-auto">
+
+    <div class="text-center mb-12">
+      <p class="eyebrow gold-text mb-3">{quizConfig.eyebrow}</p>
+      <h2 class="font-light leading-tight mb-4" style="font-family:'Cormorant Garamond',serif; font-size:clamp(2rem,5vw,3.2rem); color:#F5EFE6;">{quizConfig.heading}</h2>
+      <div class="section-divider mb-5"></div>
+      <p class="text-sm max-w-xl mx-auto" style="font-family:'Montserrat',sans-serif; font-weight:400; color:#D4C9B5; line-height:1.8;">{quizConfig.sub}</p>
+    </div>
+
+    <div class="luxury-card rounded-sm p-8 sm:p-10" data-quiz data-wa={whatsappNumber}>
+
+      <!-- Progress -->
+      <div class="flex items-center gap-2 mb-8" aria-hidden="true">
+        {quizConfig.steps.map(() => (
+          <div class="h-1 flex-1 rounded-full quiz-progress-seg" style="background:rgba(212,175,55,0.15); transition:background 0.3s ease;"></div>
+        ))}
+        <div class="h-1 flex-1 rounded-full quiz-progress-seg" style="background:rgba(212,175,55,0.15); transition:background 0.3s ease;"></div>
+      </div>
+
+      <!-- Question steps -->
+      {quizConfig.steps.map((step, i) => (
+        <fieldset class="quiz-step" data-step={i} data-key={step.id} style={i === 0 ? '' : 'display:none;'}>
+          <legend class="block w-full mb-6">
+            <span class="block text-xs mb-2 gold-text" style="font-family:'Montserrat',sans-serif; letter-spacing:0.2em; text-transform:uppercase;">Question {i + 1} of {quizConfig.steps.length}</span>
+            <span class="block font-light" style="font-family:'Cormorant Garamond',serif; font-size:1.6rem; color:#F5EFE6; line-height:1.3;">{step.question}</span>
+          </legend>
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+            {step.options.map(opt => (
+              <button type="button" class="quiz-option text-left rounded-sm px-5 py-4 cursor-pointer" data-value={opt.value}>
+                <span class="block text-sm" style="font-family:'Montserrat',sans-serif; font-weight:500; color:#F5EFE6;">{opt.value}</span>
+                {opt.hint && <span class="block text-xs mt-1" style="font-family:'Montserrat',sans-serif; color:#B8A080;">{opt.hint}</span>}
+              </button>
+            ))}
+          </div>
+          {i > 0 && (
+            <button type="button" class="quiz-back nav-link text-xs mt-6 cursor-pointer bg-transparent border-0 p-0" style="font-size:0.7rem;">← Back</button>
+          )}
+        </fieldset>
+      ))}
+
+      <!-- Final step: name + note -->
+      <div class="quiz-step" data-step="final" style="display:none;">
+        <p class="block text-xs mb-2 gold-text" style="font-family:'Montserrat',sans-serif; letter-spacing:0.2em; text-transform:uppercase;">Last Step</p>
+        <p class="font-light mb-6" style="font-family:'Cormorant Garamond',serif; font-size:1.6rem; color:#F5EFE6; line-height:1.3;">{quizConfig.finalStep.heading}</p>
+
+        <label class="block mb-5">
+          <span class="block text-xs mb-2" style="font-family:'Montserrat',sans-serif; color:#D4C9B5; letter-spacing:0.1em; text-transform:uppercase;">{quizConfig.finalStep.nameLabel}</span>
+          <input
+            type="text"
+            id="quiz-name"
+            placeholder={quizConfig.finalStep.namePlaceholder}
+            class="w-full rounded-sm px-4 py-3.5 text-sm quiz-input"
+            autocomplete="given-name"
+          />
+        </label>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-5 mb-5">
+          <label class="block">
+            <span class="block text-xs mb-2" style="font-family:'Montserrat',sans-serif; color:#D4C9B5; letter-spacing:0.1em; text-transform:uppercase;">{quizConfig.finalStep.phoneLabel}</span>
+            <input
+              type="tel"
+              id="quiz-phone"
+              placeholder={quizConfig.finalStep.phonePlaceholder}
+              class="w-full rounded-sm px-4 py-3.5 text-sm quiz-input"
+              autocomplete="tel"
+            />
+          </label>
+
+          <label class="block">
+            <span class="block text-xs mb-2" style="font-family:'Montserrat',sans-serif; color:#D4C9B5; letter-spacing:0.1em; text-transform:uppercase;">{quizConfig.finalStep.emailLabel}</span>
+            <input
+              type="email"
+              id="quiz-email"
+              placeholder={quizConfig.finalStep.emailPlaceholder}
+              class="w-full rounded-sm px-4 py-3.5 text-sm quiz-input"
+              autocomplete="email"
+            />
+          </label>
+        </div>
+
+        <p id="quiz-error" class="text-xs mb-5 hidden" style="font-family:'Montserrat',sans-serif; color:#E8998D;" role="alert"></p>
+
+        <label class="block mb-7">
+          <span class="block text-xs mb-2" style="font-family:'Montserrat',sans-serif; color:#D4C9B5; letter-spacing:0.1em; text-transform:uppercase;">{quizConfig.finalStep.noteLabel}</span>
+          <textarea
+            id="quiz-note"
+            rows="2"
+            placeholder={quizConfig.finalStep.notePlaceholder}
+            class="w-full rounded-sm px-4 py-3.5 text-sm quiz-input"
+          ></textarea>
+        </label>
+
+        <button type="button" id="quiz-submit" class="btn-gold w-full justify-center text-xs py-4">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-4 h-4 shrink-0" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.123.554 4.118 1.525 5.845L0 24l6.355-1.507A11.943 11.943 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.818a9.792 9.792 0 01-5.003-1.372l-.357-.213-3.773.893.945-3.668-.234-.377A9.789 9.789 0 012.182 12C2.182 6.57 6.57 2.182 12 2.182S21.818 6.57 21.818 12 17.43 21.818 12 21.818z"/>
+          </svg>
+          {quizConfig.finalStep.button}
+        </button>
+        <p class="text-xs mt-4 text-center" style="font-family:'Montserrat',sans-serif; color:#A08878; line-height:1.7;">{quizConfig.finalStep.disclaimer}</p>
+        <button type="button" class="quiz-back nav-link text-xs mt-5 cursor-pointer bg-transparent border-0 p-0" style="font-size:0.7rem;">← Back</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<style>
+  .quiz-option {
+    background: rgba(212, 175, 55, 0.04);
+    border: 1px solid rgba(212, 175, 55, 0.22);
+    transition: border-color 0.2s ease, background 0.2s ease, transform 0.2s ease;
+  }
+  .quiz-option:hover {
+    border-color: rgba(212, 175, 55, 0.6);
+    background: rgba(212, 175, 55, 0.09);
+    transform: translateY(-1px);
+  }
+  .quiz-option.selected {
+    border-color: #D4AF37;
+    background: rgba(212, 175, 55, 0.14);
+  }
+  .quiz-input {
+    background: rgba(212, 175, 55, 0.04);
+    border: 1px solid rgba(212, 175, 55, 0.25);
+    color: #F5EFE6;
+    font-family: 'Montserrat', sans-serif;
+    outline: none;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+  .quiz-input:focus {
+    border-color: #D4AF37;
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.12);
+  }
+  .quiz-input::placeholder { color: #7A6A58; }
+</style>
+
+<script>
+  document.querySelectorAll<HTMLElement>('[data-quiz]').forEach((quiz) => {
+    const waNumber = quiz.dataset.wa!;
+    const steps = Array.from(quiz.querySelectorAll<HTMLElement>('.quiz-step'));
+    const segs = Array.from(quiz.querySelectorAll<HTMLElement>('.quiz-progress-seg'));
+    const answers: Record<string, string> = {};
+    const labels: Record<string, string> = {
+      goal:    'Goal',
+      concern: 'Main concern',
+      timing:  'When',
+      budget:  'Budget',
+    };
+    let current = 0;
+
+    function show(index: number) {
+      current = index;
+      steps.forEach((s, i) => { s.style.display = i === index ? '' : 'none'; });
+      segs.forEach((seg, i) => {
+        seg.style.background = i <= index ? '#D4AF37' : 'rgba(212,175,55,0.15)';
+      });
+      quiz.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+
+    steps.forEach((step, index) => {
+      step.querySelectorAll<HTMLElement>('.quiz-option').forEach((opt) => {
+        opt.addEventListener('click', () => {
+          const key = step.dataset.key!;
+          answers[key] = opt.dataset.value!;
+          step.querySelectorAll('.quiz-option').forEach(o => o.classList.remove('selected'));
+          opt.classList.add('selected');
+          // brief pause so the selection is visible before advancing
+          setTimeout(() => show(index + 1), 220);
+        });
+      });
+      step.querySelectorAll<HTMLElement>('.quiz-back').forEach((back) => {
+        back.addEventListener('click', () => show(Math.max(0, current - 1)));
+      });
+    });
+
+    const submit = quiz.querySelector<HTMLButtonElement>('#quiz-submit');
+    submit?.addEventListener('click', () => {
+      const name  = (quiz.querySelector<HTMLInputElement>('#quiz-name')?.value || '').trim();
+      const phone = (quiz.querySelector<HTMLInputElement>('#quiz-phone')?.value || '').trim();
+      const email = (quiz.querySelector<HTMLInputElement>('#quiz-email')?.value || '').trim();
+      const note  = (quiz.querySelector<HTMLTextAreaElement>('#quiz-note')?.value || '').trim();
+      const error = quiz.querySelector<HTMLElement>('#quiz-error');
+
+      // Light validation: both contact fields required so the spa can follow up
+      const phoneOk = /^[+()\-\s\d]{7,}$/.test(phone);
+      const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+      if (!phoneOk || !emailOk) {
+        if (error) {
+          error.textContent = !phoneOk
+            ? 'Please enter a valid phone number so we can reach you.'
+            : 'Please enter a valid email address.';
+          error.classList.remove('hidden');
+        }
+        return;
+      }
+      error?.classList.add('hidden');
+
+      const lines = [
+        `Hi Crème De La Crème! I just completed the Beauty Plan quiz${name ? ` — my name is ${name}` : ''}.`,
+        '',
+        ...Object.entries(answers).map(([k, v]) => `• ${labels[k] || k}: ${v}`),
+        `• Phone: ${phone}`,
+        `• Email: ${email}`,
+      ];
+      if (note) lines.push(`• Note: ${note}`);
+      lines.push('', 'Please send me my personal treatment recommendation. Thank you!');
+
+      const url = `https://wa.me/${waNumber}?text=${encodeURIComponent(lines.join('\n'))}`;
+      window.open(url, '_blank', 'noopener');
+    });
+
+    show(0);
+  });
+</script>

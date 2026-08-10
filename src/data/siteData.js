@@ -8,13 +8,27 @@
 //  BRAND & CONTACT
 // ─────────────────────────────────────────────
 export const siteName        = "Crème De La Crème Spa & Beauty";
-export const siteTagline     = "Georgetown, Guyana's Most Sought-After Luxury Spa";
+export const siteUrl         = "https://creme-de-la-creme-spa-and-beauty.com";
+export const siteTagline     = "Guyana's Premier Med Spa & Luxury Beauty Sanctuary";
 export const locationAddress = "Delph Avenue, between Duncan & William Street, Campbellville, Georgetown, Guyana";
 export const locationShort   = "Delph Ave, Campbellville, Georgetown, Guyana";
 export const contactPhone    = "+592 665-7125";
+export const contactPhoneRaw = "+5926657125";
 export const contactEmail    = "";   // Add when available
+export const whatsappNumber  = "5926657125";
 export const whatsappUrl     = "https://wa.me/5926657125?text=Hi%20Cr%C3%A8me%20De%20La%20Cr%C3%A8me%20Spa%2C%20I%27d%20like%20to%20book%20an%20appointment";
 export const daysmartUrl     = "https://book.daysmart.com/booking/service?DSID=DC-600297";
+
+// ─────────────────────────────────────────────
+//  SEO — default meta + local keyword targets
+// ─────────────────────────────────────────────
+export const seoDefaults = {
+  // Front-loaded primary keyword, < 60 chars
+  title: "Med Spa in Georgetown, Guyana | Crème De La Crème",
+  // Written like ad copy, 150–160 chars, keyword + CTA
+  description:
+    "Guyana's premier med spa for clinical facials, body contouring, laser hair removal, Botox, fillers & IV therapy. Book instantly on WhatsApp — we reply fast.",
+};
 
 // ─────────────────────────────────────────────
 //  SOCIAL MEDIA
@@ -28,7 +42,7 @@ export const socials = [
   {
     label: "Threads",
     href:  "https://www.threads.com/@cremedelacreme_spa_beauty",
-    icon:  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.851 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 0 1 3.02.142c-.126-.742-.375-1.332-.75-1.757-.513-.586-1.308-.883-2.359-.89h-.029c-.844 0-1.992.232-2.721 1.32L7.734 8.87c1.03-1.553 2.628-2.41 4.461-2.41h.048c3.attacker 0 5 1.98 5.198 5.089.7.15 1.37.45 1.99.89 1.043.739 1.775 1.77 2.116 2.97.497 1.748.23 4.252-1.72 6.175C18.097 23.073 15.842 23.98 12.186 24zm.024-8.24c-.615 0-1.045.24-1.333.492-.44.386-.51.87-.481 1.226.065 1.19 1.344 1.476 2.093 1.435 1.186-.064 2.058-.657 2.396-2.41a11.28 11.28 0 0 0-2.675-.743z"/></svg>`,
+    icon:  `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="18" height="18" aria-hidden="true"><path d="M12.186 24h-.007c-3.581-.024-6.334-1.205-8.184-3.509C2.35 18.44 1.5 15.586 1.472 12.01v-.017c.03-3.579.879-6.43 2.525-8.482C5.851 1.205 8.6.024 12.18 0h.014c2.746.02 5.043.725 6.826 2.098 1.677 1.29 2.858 3.13 3.509 5.467l-2.04.569c-1.104-3.96-3.898-5.984-8.304-6.015-2.91.022-5.11.936-6.54 2.717C4.307 6.504 3.616 8.914 3.589 12c.027 3.086.718 5.496 2.057 7.164 1.43 1.783 3.631 2.698 6.54 2.717 2.623-.02 4.358-.631 5.8-2.045 1.647-1.613 1.618-3.593 1.09-4.798-.31-.71-.873-1.3-1.634-1.75-.192 1.352-.622 2.446-1.284 3.272-.886 1.102-2.14 1.704-3.73 1.79-1.202.065-2.361-.218-3.259-.801-1.063-.689-1.685-1.74-1.752-2.964-.065-1.19.408-2.285 1.33-3.082.88-.76 2.119-1.207 3.583-1.291a13.853 13.853 0 0 1 3.02.142c-.126-.742-.375-1.332-.75-1.757-.513-.586-1.308-.883-2.359-.89h-.029c-.844 0-1.992.232-2.721 1.32L7.734 8.87c1.03-1.553 2.628-2.41 4.461-2.41h.048c3.185 0 5 1.98 5.198 5.089.7.15 1.37.45 1.99.89 1.043.739 1.775 1.77 2.116 2.97.497 1.748.23 4.252-1.72 6.175C18.097 23.073 15.842 23.98 12.186 24zm.024-8.24c-.615 0-1.045.24-1.333.492-.44.386-.51.87-.481 1.226.065 1.19 1.344 1.476 2.093 1.435 1.186-.064 2.058-.657 2.396-2.41a11.28 11.28 0 0 0-2.675-.743z"/></svg>`,
   },
   {
     label: "Facebook",
@@ -47,16 +61,67 @@ export const businessHours = [
 ];
 
 // ─────────────────────────────────────────────
+//  PRICE HELPER
+// ─────────────────────────────────────────────
+export function formatPrice(value) {
+  if (value === null || value === undefined) return "On Consultation";
+  if (value === 0) return "Complimentary";
+  return `GY$${value.toLocaleString("en-US")}`;
+}
+
+// ─────────────────────────────────────────────
 //  HOMEPAGE CONTENT
+//  Copy principles: lead with the benefit, agitate the
+//  real pain (from market research), promise the
+//  transformation, prove it, then one clear action.
 // ─────────────────────────────────────────────
 export const homepageHero = {
-  eyebrow:     "Georgetown, Guyana's Most Sought-After Luxury Spa",
-  headlinePt1: "You Deserve",
-  headlineEm:  "Nothing Less",
-  headlinePt2: "Than This.",
-  subheadline: "Guyana's premier destination for luxury facials, therapeutic massage, expert hair care, and precision nail artistry — all under one roof in the heart of Georgetown.",
-  ctaPrimary:  "Reserve Now via WhatsApp",
-  ctaSecond:   "Browse & Book Online",
+  eyebrow:     "Georgetown's Premier Med Spa — Campbellville, Guyana",
+  headlinePt1: "Glowing Skin.",
+  headlineEm:  "A Sculpted Body.",
+  headlinePt2: "No Surgery. No Downtime.",
+  subheadline: "Clinical-grade facials, body contouring, laser hair removal, injectables and IV therapy — delivered with VIP pampering by experts who explain every step. And yes, we actually answer your messages.",
+  ctaPrimary:  "Book on WhatsApp — Fast Reply",
+  ctaSecond:   "Get My Free Beauty Plan",
+};
+
+// The three transformations clients actually buy (benefits, not features)
+export const resultsPillars = [
+  {
+    stat:  "01",
+    title: "Skin That Doesn't Need a Filter",
+    body:  "Acne scars, dark spots and fine lines fade with medical-grade peels, HydraFacials, CO2 rejuvenation and PRP — actives that work below the surface, where creams can't reach.",
+  },
+  {
+    stat:  "02",
+    title: "Your Shape, Without Surgery",
+    body:  "Cavitation, EmSculpt, lipo laser and radio-frequency tightening target stubborn fat and loose skin — so you see a slimmer waist and firmer contours with zero operating room and zero downtime.",
+  },
+  {
+    stat:  "03",
+    title: "Walk Out Feeling Like a VIP",
+    body:  "Every visit is unhurried: a warm welcome, a full consultation, every procedure explained before it touches your skin. You leave refreshed, confident and turning heads.",
+  },
+];
+
+// Pain → agitate section (pulled directly from market research complaints)
+export const painSection = {
+  eyebrow:  "Sound Familiar?",
+  heading:  "You Shouldn't Have to Beg a Salon to Take Your Money",
+  pains: [
+    {
+      title: "Ghosted when you try to book",
+      body:  "You message, you call, you wait… nothing. Your time is worth more than that. We confirm bookings on WhatsApp fast — usually within the hour.",
+    },
+    {
+      title: "Products that never worked",
+      body:  "It wasn't your fault. Over-the-counter creams can't penetrate past the surface. Our treatments use clinical actives and technology that reach the layers where change actually happens.",
+    },
+    {
+      title: "Rushed, assembly-line appointments",
+      body:  "No one should be hustled out of the chair. Every appointment here starts with a real consultation and ends when you're satisfied — not when the clock says so.",
+    },
+  ],
 };
 
 export const homepagePromise = {
@@ -65,209 +130,374 @@ export const homepagePromise = {
   cta:      "Claim Your Appointment",
 };
 
-// Overview cards shown on the homepage (links to full service detail on /services)
+// Overview cards shown on the homepage (links to full detail on /services)
 export const serviceOverviews = [
   {
-    title:       "Luxury Facials & Skin Care",
-    description: "Your skin tells your story — let us make it a beautiful one. Our estheticians craft each facial to your exact skin profile, using medical-grade formulations that deliver visible results from the very first session.",
+    title:       "Clinical Facials & Skin Treatments",
+    benefit:     "Clear, even, camera-ready skin",
+    description: "HydraFacials, chemical peels, CO2 rejuvenation, PRP and stem cell therapy — chosen for your exact skin after a real consultation, so every session moves you visibly closer to clear, glowing skin.",
     href:        "/services#facials",
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-7 h-7"><path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09z"/></svg>`,
+    priceFrom:   10000,
   },
   {
-    title:       "Day Spa & Premium Massages",
-    description: "An hour with our therapists is a full reset. Trained across Swedish, deep tissue, hot stone, and aromatherapy modalities, they work with both surgical precision and a deeply intuitive touch.",
-    href:        "/services#massages",
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-7 h-7"><path stroke-linecap="round" stroke-linejoin="round" d="M12 3v2.25m6.364.386l-1.591 1.591M21 12h-2.25m-.386 6.364l-1.591-1.591M12 18.75V21m-4.773-4.227l-1.591 1.591M5.25 12H3m4.227-4.773L5.636 5.636"/></svg>`,
+    title:       "Body Contouring & Sculpting",
+    benefit:     "A snatched silhouette — no surgery",
+    description: "Cavitation, EmSculpt, lipo laser, wood therapy and RF skin tightening melt stubborn inches and firm loose skin, so your clothes fit the way you always wanted them to.",
+    href:        "/services#body-contouring",
+    priceFrom:   10000,
   },
   {
-    title:       "Professional Hair Care & Styling",
-    description: "Your hair is your crown — and it deserves a master craftsperson. From lived-in colour to keratin transformations, our stylists deliver results that turn heads long after you leave the chair.",
-    href:        "/services#hair",
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-7 h-7"><path stroke-linecap="round" stroke-linejoin="round" d="M15.59 14.37a6 6 0 01-5.84 7.38v-4.8m5.84-2.58a14.98 14.98 0 006.16-12.12A14.98 14.98 0 009.631 8.41m5.96 5.96a14.926 14.926 0 01-5.841 2.58m-.119-8.54a6 6 0 00-7.381 5.84h4.8m2.581-5.84a14.927 14.927 0 00-2.58 5.84m2.699 2.7c-.103.021-.207.041-.311.06a15.09 15.09 0 01-2.448-2.448 14.9 14.9 0 01.06-.312m-2.24 2.39a4.493 4.493 0 00-1.757 4.306 4.493 4.493 0 004.306-1.758M16.5 9a1.5 1.5 0 11-3 0 1.5 1.5 0 013 0z"/></svg>`,
+    title:       "Laser Hair Removal",
+    benefit:     "Smooth skin, forever — not for a week",
+    description: "Stop paying for razors and painful waxing every month. Candela laser technology permanently reduces hair on the face, underarms, bikini line, arms and legs.",
+    href:        "/services#hair-removal",
+    priceFrom:   6000,
   },
   {
-    title:       "Luxury Manicures & Pedicures",
-    description: "Details make the difference. Our nail artists bring obsessive precision to every shape, polish, and finish — whether you want understated elegance or a bold statement that speaks for itself.",
-    href:        "/services#nails",
-    icon: `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1" stroke="currentColor" class="w-7 h-7"><path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z"/></svg>`,
+    title:       "Botox & Dermal Fillers",
+    benefit:     "Refreshed, balanced, still you",
+    description: "Soften frown lines, define your jaw, enhance lips and cheeks — subtle, expertly-placed injectables that make people say \"you look amazing\", not \"what did you do?\".",
+    href:        "/services#injectables",
+    priceFrom:   10000,
+  },
+  {
+    title:       "IV Vitamin Therapy",
+    benefit:     "Energy and glow from the inside out",
+    description: "NAD+ anti-aging, energy boost, detox, and glow drips deliver vitamins straight into your bloodstream — hydration and radiance you can feel the same day.",
+    href:        "/services#iv-therapy",
+    priceFrom:   15000,
+  },
+  {
+    title:       "Advanced Treatments & Lasers",
+    benefit:     "Fix what bothers you — for good",
+    description: "Stretch marks, spider veins, tattoos, pigmentation, teeth whitening, PRP hair restoration — targeted technology for the concerns you've been hiding.",
+    href:        "/services#treatments",
+    priceFrom:   15000,
+  },
+];
+
+// Differentiators — the "sacred cows we kill" (reasons to choose us)
+export const differentiators = [
+  {
+    title: "We Answer. Fast.",
+    body:  "Booking is one WhatsApp message away, with prompt confirmation. No ghosting, no ringing phones into the void.",
+  },
+  {
+    title: "Consultation Before Anything",
+    body:  "Nothing touches your skin until a specialist has assessed it and explained exactly what we'll do, why, and what to expect.",
+  },
+  {
+    title: "Medical-Grade, Not Feel-Good Fluff",
+    body:  "Clinical actives and real technology — CO2, Candela, EmSculpt, RF — chosen because they produce visible results, not just a nice smell.",
+  },
+  {
+    title: "VIP Treatment, Every Visit",
+    body:  "A warm welcome, a calm private space, complimentary refreshments, and a team that remembers your name and your goals.",
   },
 ];
 
 // ─────────────────────────────────────────────
-//  SERVICES (full menu — used on /services)
+//  FULL SERVICE CATALOG  (used on /services + quiz)
+//  price: number in GYD  |  0 = complimentary  |  null = on consultation
 // ─────────────────────────────────────────────
 export const serviceCategories = [
   {
-    id:       "facials",
-    label:    "Luxury Facials & Skin Care",
-    tagline:  "Visible results. Real radiance. No compromises.",
+    id:      "facials",
+    label:   "Facials & Advanced Skincare",
+    tagline: "Clear, glowing, filter-free skin.",
+    intro:   "Your skin is the first thing people see — and the first thing that changes when the right actives finally reach the right depth. Every facial begins with a skin assessment, so you get the treatment your skin needs, not a one-size-fits-all routine.",
     services: [
-      {
-        name:     "Signature Gold Facial",
-        duration: "75 min",
-        price:    "",
-        desc:     "Our flagship treatment. A gold-infused protocol that firms, brightens, and deeply nourishes — designed to deliver a red-carpet glow that lasts for days.",
-      },
-      {
-        name:     "Deep Pore Cleansing Facial",
-        duration: "60 min",
-        price:    "",
-        desc:     "The reset your skin has been craving. Expert extraction and deep-cleansing actives work together to purify congested pores and restore balanced, healthy-looking skin.",
-      },
-      {
-        name:     "Hydrating Vitamin C Facial",
-        duration: "60 min",
-        price:    "",
-        desc:     "Dull, tired skin meets its match. A potent vitamin C infusion that visibly evens tone, erases the look of fatigue, and floods the skin with lasting luminosity.",
-      },
-      {
-        name:     "Anti-Aging Collagen Facial",
-        duration: "75 min",
-        price:    "",
-        desc:     "Turn back the clock — naturally. Collagen-stimulating actives work deep in the dermis to visibly plump fine lines and restore the supple firmness of younger skin.",
-      },
-      {
-        name:     "Sensitive Skin Calming Facial",
-        duration: "60 min",
-        price:    "",
-        desc:     "Reactive skin deserves expert care, not guesswork. This ultra-gentle botanical treatment reduces redness, calms irritation, and leaves even the most sensitive complexions feeling comfortable and balanced.",
-      },
-      {
-        name:     "Express Glow Facial",
-        duration: "30 min",
-        price:    "",
-        desc:     "No time? No problem. In 30 minutes, this power-packed treatment delivers a genuine radiance boost — perfect the morning of a special occasion or whenever your skin needs a quick, expert lift.",
-      },
+      { name: "HydraFacial With Booster",                    price: 25000 },
+      { name: "Glow Facial",                                 price: 20000 },
+      { name: "Acne Facial",                                 price: 20000 },
+      { name: "Acne Laser Treatment",                        price: 15000 },
+      { name: "Anti-Aging Facial",                           price: 25000 },
+      { name: "Deep Cleansing Facial",                       price: 15000 },
+      { name: "Chemical Peel Facial",                        price: 25000 },
+      { name: "Algae Peel",                                  price: 20000 },
+      { name: "Microdermabrasion Face Renewal",              price: 20000 },
+      { name: "CO2 Face Rejuvenation",                       price: 60000 },
+      { name: "Platelet-Rich Plasma (PRP) Facial",           price: 30000 },
+      { name: "Salmon DNA",                                  price: 25000 },
+      { name: "Stem Cell Treatment",                         price: 25000 },
+      { name: "Spongella",                                   price: 20000 },
+      { name: "Moon Bath",                                   price: 15000 },
+      { name: "Carbon Facial",                               price: 25000 },
+      { name: "IPL Laser Face Rejuvenation",                 price: 30000 },
+      { name: "Pigmentation Reduction",                      price: 25000 },
+      { name: "Laser Skin Tightening",                       price: 30000 },
+      { name: "Butt Facial",                                 price: 12000 },
+      { name: "Vajacial",                                    price: 10000 },
+      { name: "Body Scrubs",                                 price: 15000 },
+      { name: "Facial Consultation",                         price: 2000  },
     ],
   },
   {
-    id:       "massages",
-    label:    "Day Spa & Premium Massages",
-    tagline:  "Walk in carrying the week. Walk out carrying nothing.",
+    id:      "body-contouring",
+    label:   "Body Contouring & Sculpting",
+    tagline: "The silhouette you want — without the surgeon.",
+    intro:   "Stubborn fat that ignores diet and exercise doesn't need surgery — it needs technology. Cavitation, EmSculpt, lipo laser and radio-frequency treatments reduce inches, lift and firm, with zero downtime. Start with a GY$2,000 consultation and leave with a plan built around your body.",
     services: [
-      {
-        name:     "Swedish Relaxation Massage",
-        duration: "60 / 90 min",
-        price:    "",
-        desc:     "The gold standard of relaxation. Long, flowing strokes release surface tension, improve circulation, and coax the nervous system into a state of deep, full-body calm.",
-      },
-      {
-        name:     "Deep Tissue Therapy Massage",
-        duration: "60 / 90 min",
-        price:    "",
-        desc:     "For the tension that won't let go. Sustained, targeted pressure reaches the deeper muscle layers where chronic stress and stiffness hide — then systematically dissolves them.",
-      },
-      {
-        name:     "Hot Stone Luxury Massage",
-        duration: "90 min",
-        price:    "",
-        desc:     "Warmth. Weight. Release. Smooth volcanic basalt stones are guided across the body with therapeutic intention, creating a grounding, profoundly restorative experience unlike anything else.",
-      },
-      {
-        name:     "Aromatherapy Journey Massage",
-        duration: "75 min",
-        price:    "",
-        desc:     "A multi-sensory retreat. Your therapist handpicks a blend of pure essential oils matched to your mood and needs — then works them into the body through slow, deliberate, healing strokes.",
-      },
-      {
-        name:     "Couples Spa Package",
-        duration: "120 min",
-        price:    "",
-        desc:     "Luxury, together. Side-by-side massages in a private setting, rounded off with a sparkling toast — the most meaningful way to celebrate any occasion, or simply each other.",
-      },
-      {
-        name:     "Prenatal Massage",
-        duration: "60 min",
-        price:    "",
-        desc:     "You're carrying something extraordinary. This gentle, specially adapted massage honours your body's current needs — relieving back tension, reducing swelling, and bringing deep, safe relaxation during one of life's most demanding chapters.",
-      },
+      { name: "Body Contouring Consultation",                price: 2000   },
+      { name: "Cavitation",                                  price: 15000  },
+      { name: "V10 Cavitation",                              price: 15000  },
+      { name: "Fat Blaster",                                 price: 15000  },
+      { name: "Flat Tummy Session",                          price: 15000  },
+      { name: "EmSculpt Tummy",                              price: 15000  },
+      { name: "EmSculpt Butt Lifting",                       price: 15000  },
+      { name: "Vacuum Butt Treatment",                       price: 15000  },
+      { name: "Waist Sculpture",                             price: 15000  },
+      { name: "Radio Frequency Skin Tightening",             price: 15000  },
+      { name: "Maintenance Treatment — Cavitation RF",       price: 15000  },
+      { name: "5D Laser",                                    price: 15000  },
+      { name: "6D Lipo Laser",                               price: 15000  },
+      { name: "10D Laser",                                   price: 15000  },
+      { name: "Endospheres",                                 price: 15000  },
+      { name: "Tecar",                                       price: 15000  },
+      { name: "Venus Legacy",                                price: 15000  },
+      { name: "Wood Therapy",                                price: 10000  },
+      { name: "Cellulite Reduction",                         price: 20000  },
+      { name: "Back Sculpting",                              price: 20000  },
+      { name: "Chin Reduction",                              price: 30000  },
+      { name: "Chin Reduction With Sculpting (6 Sessions)",  price: 100000 },
+      { name: "Liquid Lipo Injections",                      price: 30000  },
+      { name: "Leg Reduction",                               price: 60000  },
+      { name: "Thigh Slimming & Sculpting (6 Sessions)",     price: 100000 },
+      { name: "Fibrosis Treatments",                         price: 120000 },
+      { name: "Skin Tightening Program",                     price: 250000 },
+      { name: "Post-Surgery Recovery Program (Sessions)",    price: 150000 },
+      { name: "Surgery Travel Care Package",                 price: 500000 },
     ],
   },
   {
-    id:       "hair",
-    label:    "Professional Hair Care & Styling",
-    tagline:  "Your best hair day — every time you leave our chair.",
+    id:      "hair-removal",
+    label:   "Laser Hair Removal",
+    tagline: "Smooth today. Smooth in six months.",
+    intro:   "Waxing hurts, shaving never ends, and both cost you every single month. Candela laser hair removal permanently reduces hair at the root — so smooth skin becomes your default, not your chore.",
     services: [
-      {
-        name:     "Precision Haircut & Style",
-        duration: "45+ min",
-        price:    "",
-        desc:     "Not just a haircut — a transformation. Your stylist analyses your face shape, texture, and lifestyle to sculpt a cut that works effortlessly from morning to night, day after day.",
-      },
-      {
-        name:     "Full Colour & Toner",
-        duration: "90+ min",
-        price:    "",
-        desc:     "Colour that looks like it was born there. Professional application paired with expert toning delivers seamless, even, multi-dimensional results that flatter your complexion and stay vibrant longer.",
-      },
-      {
-        name:     "Balayage / Highlights",
-        duration: "120+ min",
-        price:    "",
-        desc:     "The art of the sun-kissed look, done right. Hand-painted, freeform lightening creates effortlessly natural, graduated dimension — the kind of colour people spend months trying to achieve on their own.",
-      },
-      {
-        name:     "Keratin Smoothing Treatment",
-        duration: "120+ min",
-        price:    "",
-        desc:     "Life is too short to fight your hair. This professional keratin treatment eliminates frizz at the source, leaving hair genuinely smooth, manageable, and brilliantly glossy for weeks.",
-      },
-      {
-        name:     "Deep Conditioning Hair Treatment",
-        duration: "45 min",
-        price:    "",
-        desc:     "Colour-processed, heat-styled, or simply thirsty — every strand gets what it needs. This intensive repair treatment restores moisture, seals the cuticle, and brings back softness and shine you thought was gone.",
-      },
-      {
-        name:     "Blowout & Style",
-        duration: "45 min",
-        price:    "",
-        desc:     "A professional blowout changes everything. Volume, movement, and a flawless finish that holds — this is what a great blowout actually feels like when done by someone who has mastered it.",
-      },
+      { name: "Upper Lip Hair Removal",                      price: 6000  },
+      { name: "Underarm Laser Hair Removal",                 price: 10000 },
+      { name: "Face Laser Hair Removal",                     price: 15000 },
+      { name: "Candela Hair Removal — Lip & Chin",           price: 15000 },
+      { name: "Bikini Laser Hair Removal",                   price: 20000 },
+      { name: "Brazilian Laser Hair Removal",                price: 30000 },
+      { name: "Full Arm Laser Hair Removal",                 price: 40000 },
+      { name: "Full Leg Laser Hair Removal",                 price: 50000 },
     ],
   },
   {
-    id:       "nails",
-    label:    "Luxury Manicures & Pedicures",
-    tagline:  "Obsessive precision. Immaculate finish.",
+    id:      "injectables",
+    label:   "Botox & Dermal Fillers",
+    tagline: "Subtle work. Striking difference.",
+    intro:   "The best injectable work is the kind nobody can point to — they just notice you look rested, balanced and confident. Every enhancement starts with a consultation and facial assessment, and every step is explained before we begin.",
     services: [
-      {
-        name:     "Signature Luxury Manicure",
-        duration: "45 min",
-        price:    "",
-        desc:     "The benchmark for beautiful hands. Premium exfoliation, careful cuticle work, a deeply relaxing hand massage, and a flawless polish application — every detail seen to, every time.",
-      },
-      {
-        name:     "Gel Manicure",
-        duration: "60 min",
-        price:    "",
-        desc:     "All the polish, none of the waiting. Long-wear gel colour cures instantly to a mirror-bright, chip-resistant finish that stays immaculate through two weeks of real life.",
-      },
-      {
-        name:     "Luxury Spa Pedicure",
-        duration: "60 min",
-        price:    "",
-        desc:     "Your feet carry you everywhere — give them the care they deserve. A full-service spa pedicure featuring a warm soak, buffing scrub, therapeutic massage, and pristine polish in a genuinely relaxing environment.",
-      },
-      {
-        name:     "Gel Pedicure",
-        duration: "75 min",
-        price:    "",
-        desc:     "The complete pedicure experience elevated with a lasting gel finish. Every element of our spa pedicure, sealed with durable colour that holds from sandal season to sandal season.",
-      },
-      {
-        name:     "Nail Art Design",
-        duration: "Varies",
-        price:    "",
-        desc:     "Your nails, your canvas. From refined geometric accents to intricate hand-painted designs, our nail artists execute at a level of craft that photographs beautifully and impresses in person.",
-      },
-      {
-        name:     "Paraffin Wax Treatment",
-        duration: "Add-on",
-        price:    "",
-        desc:     "The luxury add-on your hands and feet will thank you for. Warm paraffin wax envelops the skin in moisture, relieves joint stiffness, and leaves a softness that you'll notice for days.",
-      },
+      { name: "Botox Lip Flip",                              price: 10000  },
+      { name: "Botox Gummy Smile",                           price: 10000  },
+      { name: "Botox Chin Dimpling",                         price: 12000  },
+      { name: "Botox Crow's Feet",                           price: 15000  },
+      { name: "Botox Brow Lift",                             price: 15000  },
+      { name: "Botox Frown Lines",                           price: 20000  },
+      { name: "Botox Forehead Lines",                        price: 20000  },
+      { name: "Botox Bunny Lines",                           price: 20000  },
+      { name: "Botox Lip Enhancements",                      price: 25000  },
+      { name: "Botox Jawline",                               price: 30000  },
+      { name: "Botox Masseter Slimming",                     price: 30000  },
+      { name: "Botox Face Slimming Package",                 price: 70000  },
+      { name: "Botox Underarm (Sweat Reduction)",            price: 100000 },
+      { name: "Lip Boosters",                                price: 20000  },
+      { name: "Eye Boosters",                                price: 30000  },
+      { name: "Lip Filler",                                  price: 40000  },
+      { name: "Chin Fillers",                                price: 30000  },
+      { name: "Filler Malar Split",                          price: 30000  },
+      { name: "Molar Split",                                 price: 40000  },
+      { name: "Temple Fillers",                              price: 40000  },
+      { name: "Cheek Fillers",                               price: 60000  },
+      { name: "Jawline Fillers",                             price: 70000  },
+      { name: "Face Balancing",                              price: 200000 },
+      { name: "Glutes Enhancement",                          price: 60000  },
+      { name: "Butt Enhancement",                            price: 120000 },
+      { name: "Breast Filler",                               price: 150000 },
+      { name: "Butt Fillers",                                price: 300000 },
+      { name: "Vaginal Fillers",                             price: 75000  },
+      { name: "Semaglutide Injection",                       price: 25000  },
+      { name: "Cagrilintide Injection",                      price: 25000  },
+      { name: "Tightening Injection",                        price: 30000  },
+      { name: "Tesamorelin Injection",                       price: null   },
+      { name: "Butt & Hip Fillers Consultation",             price: 2000   },
     ],
+  },
+  {
+    id:      "iv-therapy",
+    label:   "IV Vitamin Therapy",
+    tagline: "Beauty and energy, delivered straight to the source.",
+    intro:   "Pills lose most of their potency in digestion. IV therapy delivers vitamins, antioxidants and hydration directly into your bloodstream — so you feel the energy, see the glow, and recover faster, often the very same day.",
+    services: [
+      { name: "Vitamin C IV",                                price: 15000 },
+      { name: "Energy Boost IV",                             price: 20000 },
+      { name: "Energy & Stress Recovery IV",                 price: 20000 },
+      { name: "Glow & Radiance IV",                          price: 20000 },
+      { name: "Detox & Liver Cleanse IV",                    price: 20000 },
+      { name: "Post-Op Care IV",                             price: 20000 },
+      { name: "Anti-Inflammation IV",                        price: 25000 },
+      { name: "Anti-Aging NAD+ IV",                          price: 30000 },
+      { name: "Anti-Wrinkle Relax IV",                       price: 30000 },
+      { name: "Slimming / Fat-Burning IV",                   price: 30000 },
+      { name: "Whitening / Pigmentation IV",                 price: 30000 },
+      { name: "IV Consultation",                             price: 2000  },
+    ],
+  },
+  {
+    id:      "treatments",
+    label:   "Specialised Treatments",
+    tagline: "The concerns you've been hiding — handled.",
+    intro:   "Stretch marks, spider veins, old tattoos, uneven tone, thinning hair. These aren't things you have to live with — they're things we treat every week with targeted, technology-driven protocols.",
+    services: [
+      { name: "Stretch Marks Removal",                       price: 20000 },
+      { name: "Spider Veins Removal",                        price: 20000 },
+      { name: "Tattoo Removal",                              price: 20000 },
+      { name: "Wart Removal",                                price: 20000 },
+      { name: "Teeth Whitening",                             price: 20000 },
+      { name: "Intimate Whitening",                          price: 15000 },
+      { name: "PRP Hair Restoration",                        price: 30000 },
+      { name: "Carboxy Treatment",                           price: 25000 },
+      { name: "Cryo Microwave",                              price: 30000 },
+      { name: "Hydrolipograsia",                             price: 60000 },
+      { name: "Cavitation On Back",                          price: 15000 },
+      { name: "V10 Cavitation On Back",                      price: 15000 },
+      { name: "Lipo Laser",                                  price: 15000 },
+      { name: "Lipo Laser On Back",                          price: 15000 },
+      { name: "Rotating Machine",                            price: 15000 },
+      { name: "Vitamin C Treatment",                         price: 25000 },
+      { name: "Parley Beauty Cream",                         price: 5000  },
+    ],
+  },
+  {
+    id:      "body-therapy",
+    label:   "Body Therapy & Recovery",
+    tagline: "Ease the stress. Keep the results.",
+    intro:   "Recovery and maintenance are where results are locked in. Red light therapy, thermo shock, vacuum therapy and massage keep your body relaxed, your circulation strong, and your contouring results looking their best.",
+    services: [
+      { name: "Red Light Therapy",                           price: 10000  },
+      { name: "Thermo Shock",                                price: 15000  },
+      { name: "Vacuum Therapy",                              price: 15000  },
+      { name: "Inner Ball Roller",                           price: 20000  },
+      { name: "Butt Massage",                                price: 0      },
+      { name: "Face Massage",                                price: 0      },
+      { name: "Slimming & Tightening Program",               price: 250000 },
+    ],
+  },
+  {
+    id:      "packages",
+    label:   "Signature Packages & Consultations",
+    tagline: "Bundled results. Better value.",
+    intro:   "Serious transformations happen over a program, not a single session. Our packages bundle the right treatments in the right order — and every journey can begin with a GY$2,000 consultation where we map your personal plan.",
+    services: [
+      { name: "Mommy & Me Package",                          price: 60000  },
+      { name: "Back Reduction Package",                      price: 100000 },
+      { name: "Body Transformation Consultation",            price: 2000   },
+      { name: "Endolift Consultation",                       price: 2000   },
+    ],
+  },
+];
+
+// ─────────────────────────────────────────────
+//  LEAD-CAPTURE QUIZ ("Free Beauty Plan")
+//  Answers are packaged into a WhatsApp message.
+// ─────────────────────────────────────────────
+export const quizConfig = {
+  eyebrow:  "Free & Takes 30 Seconds",
+  heading:  "Get Your Personal Beauty Plan",
+  sub:      "Answer 4 quick questions and receive a personalised treatment recommendation — straight to your WhatsApp, from a real specialist. No obligation, no spam.",
+  cta:      "Get My Free Beauty Plan",
+  steps: [
+    {
+      id:       "goal",
+      question: "What result do you want most right now?",
+      options: [
+        { value: "Clear, glowing skin",                    hint: "Facials, peels, skin rejuvenation" },
+        { value: "A slimmer, sculpted body",               hint: "Cavitation, EmSculpt, lipo laser" },
+        { value: "Permanently smooth, hair-free skin",     hint: "Candela laser hair removal" },
+        { value: "Facial enhancement (Botox / fillers)",   hint: "Lips, jawline, cheeks, wrinkle relaxing" },
+        { value: "More energy & inner glow",               hint: "IV vitamin therapy" },
+        { value: "Not sure — recommend for me",            hint: "We'll guide you to the right treatment" },
+      ],
+    },
+    {
+      id:       "concern",
+      question: "What's been bothering you the most?",
+      options: [
+        { value: "Acne, scars or dark spots" },
+        { value: "Fine lines & signs of aging" },
+        { value: "Stubborn belly fat or love handles" },
+        { value: "Loose or sagging skin" },
+        { value: "Unwanted facial / body hair" },
+        { value: "Low energy, stress & dull skin" },
+        { value: "Something else" },
+      ],
+    },
+    {
+      id:       "timing",
+      question: "When would you like to start?",
+      options: [
+        { value: "This week — I'm ready" },
+        { value: "Within the next 2 weeks" },
+        { value: "Within the month" },
+        { value: "Just researching for now" },
+      ],
+    },
+    {
+      id:       "budget",
+      question: "What investment range feels comfortable per session?",
+      options: [
+        { value: "Under GY$20,000" },
+        { value: "GY$20,000 – GY$60,000" },
+        { value: "GY$60,000+" },
+        { value: "Guide me — I want the best result" },
+      ],
+    },
+  ],
+  finalStep: {
+    heading:     "Where should we send your plan?",
+    nameLabel:   "Your first name",
+    namePlaceholder: "e.g. Alicia",
+    phoneLabel:  "Your phone number (WhatsApp)",
+    phonePlaceholder: "e.g. +592 600-0000",
+    emailLabel:  "Your email address",
+    emailPlaceholder: "e.g. alicia@gmail.com",
+    noteLabel:   "Anything else we should know? (optional)",
+    notePlaceholder: "e.g. I have an event in 3 weeks…",
+    button:      "Send My Plan to WhatsApp",
+    disclaimer:  "Tapping the button opens WhatsApp with your answers pre-filled — send the message and a specialist will reply with your personal recommendation.",
+  },
+};
+
+// ─────────────────────────────────────────────
+//  FAQ (targets People-Also-Ask style queries + FAQ schema)
+// ─────────────────────────────────────────────
+export const faqs = [
+  {
+    q: "How do I book an appointment at Crème De La Crème Spa & Beauty?",
+    a: "The fastest way is WhatsApp at +592 665-7125 — we confirm bookings promptly, usually within the hour. You can also book through our online calendar. No ghosting, no endless ringing: responsive booking is one of our core promises.",
+  },
+  {
+    q: "Do body contouring treatments like cavitation really work without surgery?",
+    a: "Yes. Ultrasonic cavitation, EmSculpt, lipo laser and radio-frequency tightening are established non-surgical technologies that target fat cells and stimulate skin firming. Results build over a series of sessions, which is why every program starts with a GY$2,000 consultation where we assess your body and set realistic expectations.",
+  },
+  {
+    q: "Is there any downtime after facials, lasers or body contouring?",
+    a: "Most of our treatments have little to no downtime — you can return to your day immediately. Deeper treatments like CO2 rejuvenation or chemical peels may involve a short recovery period, which your specialist will explain fully during your consultation before anything is done.",
+  },
+  {
+    q: "How much do treatments cost in Georgetown?",
+    a: "Facials start from GY$10,000, laser hair removal from GY$6,000, body contouring sessions from GY$10,000, and Botox from GY$10,000. Every price is listed openly on our services page — no surprises, no hidden fees.",
+  },
+  {
+    q: "Where is Crème De La Crème Spa & Beauty located?",
+    a: "We're on Delph Avenue, between Duncan & William Street, Campbellville, Georgetown, Guyana. We're open seven days a week, and many international clients visit us while in Guyana — we also offer post-surgery recovery and travel care packages.",
+  },
+  {
+    q: "Will my treatment be explained before it starts?",
+    a: "Always. Nothing touches your skin until a specialist has assessed you, explained the procedure step-by-step, and answered every question. It's why first-time clients become regulars.",
   },
 ];
 
@@ -278,9 +508,9 @@ export const aboutStory = {
   eyebrow: "Georgetown, Guyana",
   heading: "Built on One Belief: You Should Feel Extraordinary",
   paragraphs: [
-    "Crème De La Crème Spa & Beauty was founded with a clear and unapologetic vision: to build something Georgetown had never quite seen before — a luxury spa that didn't ask you to travel abroad to experience world-class beauty and wellness.",
-    "Nestled on Delph Avenue in Campbellville, our sanctuary was designed from the ground up as a place of genuine refuge. Where the noise of the day stops at the door. Where every detail — from the scent in the air to the weight of a warm towel — is considered.",
-    "We believe that truly exceptional service is felt before a single word is spoken. It's in the environment, the expertise, the quiet confidence of a team that genuinely knows what they're doing. That's the standard we hold ourselves to — every client, every appointment, every day.",
+    "Crème De La Crème Spa & Beauty was founded with a clear and unapologetic vision: to build something Georgetown had never quite seen before — a med spa that didn't ask you to fly abroad for world-class aesthetic treatments and genuine VIP care.",
+    "Nestled on Delph Avenue in Campbellville, our sanctuary combines clinical-grade technology — CO2 rejuvenation, Candela lasers, EmSculpt, IV therapy — with the warmth, calm and attention of a true luxury spa. Where the noise of the day stops at the door, and every detail is considered.",
+    "We stand against everything that made you dread booking beauty appointments: the ghosted messages, the rushed chairs, the treatments no one explains. Here, you're greeted warmly, consulted properly, and cared for by a team that genuinely knows what they're doing.",
     "Georgetown deserves the best. So do you.",
   ],
 };
@@ -288,19 +518,19 @@ export const aboutStory = {
 export const aboutValues = [
   {
     title: "Uncompromising Standards",
-    desc:  "We don't cut corners. Every product, every tool, every technique is held to an exacting standard — because you'll feel the difference immediately.",
+    desc:  "Medical-grade products, maintained equipment, exacting hygiene. You'll feel the difference the moment you walk in.",
   },
   {
-    title: "Genuinely Tailored Care",
-    desc:  "No two clients are the same. Every treatment begins with listening — understanding your skin, your goals, and your preferences before a single product is applied.",
+    title: "Consultation-First Care",
+    desc:  "Every treatment begins with listening — your skin, your goals, your comfort level — before a single product is applied.",
   },
   {
     title: "Expert Practitioners",
-    desc:  "Our team trains continuously. Technique, product knowledge, and client care are ongoing commitments — not one-time credentials.",
+    desc:  "Our team trains continuously on technique, technology and client care. Credentials are the start, not the finish.",
   },
   {
     title: "A Space That Restores",
-    desc:  "From the moment you step inside, the environment itself begins working on you. The calm, the warmth, the detail — all of it is intentional.",
+    desc:  "The calm, the warmth, the complimentary refreshments — the environment starts working on you before we do.",
   },
 ];
 
@@ -320,11 +550,12 @@ export const contactBookingCard = {
 // ─────────────────────────────────────────────
 //  FOOTER
 // ─────────────────────────────────────────────
-export const footerTagline = "Georgetown's finest sanctuary for luxury beauty & total restoration.";
+export const footerTagline = "Guyana's premier med spa — clinical results, VIP care, and a team that always answers.";
 
 export const footerNavLinks = [
-  { label: "Home",     href: "/"        },
-  { label: "Services", href: "/services"},
-  { label: "About",    href: "/about"   },
-  { label: "Contact",  href: "/contact" },
+  { label: "Home",        href: "/"            },
+  { label: "Services",    href: "/services"    },
+  { label: "Beauty Plan", href: "/beauty-plan" },
+  { label: "About",       href: "/about"       },
+  { label: "Contact",     href: "/contact"     },
 ];

@@ -1,0 +1,18 @@
+---
+import Layout from '../layouts/Layout.astro';
+import BeautyPlanQuiz from '../components/BeautyPlanQuiz.astro';
+import { faqs } from '../data/siteData.js';
+
+const quizFaqs = faqs.slice(0, 3);
+---
+
+<Layout
+  title="Free Beauty Plan Quiz | Crème De La Crème Spa & Beauty"
+  description="Answer 4 quick questions and get a personalised treatment recommendation from Georgetown's premier med spa — free, straight to your WhatsApp."
+  faqSchema={quizFaqs}
+>
+  <!-- Small hero to give the quiz breathing room under the fixed navbar -->
+  <div class="pt-24" style="background: radial-gradient(ellipse at 50% 0%, #2D1035 0%, #0D0A0F 70%);">
+    <BeautyPlanQuiz />
+  </div>
+</Layout>

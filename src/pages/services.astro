@@ -1,78 +1,111 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { whatsappUrl, daysmartUrl, serviceCategories } from '../data/siteData.js';
+import {
+  whatsappUrl,
+  whatsappNumber,
+  daysmartUrl,
+  serviceCategories,
+  formatPrice,
+} from '../data/siteData.js';
+
+// Per-service WhatsApp booking link with the service name pre-filled
+function bookLink(serviceName) {
+  const msg = `Hi Crème De La Crème! I'd like to book: ${serviceName}. What times do you have available?`;
+  return `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(msg)}`;
+}
 ---
 
 <Layout
-  title="Services | Crème De La Crème Spa & Beauty"
-  description="Explore our full menu of luxury spa services in Georgetown, Guyana — facials, massages, hair care, and nail treatments."
+  title="Spa Services & Prices — Georgetown, Guyana | Crème De La Crème"
+  description="Full price list: facials from GY$10,000, laser hair removal from GY$6,000, body contouring, Botox, fillers & IV therapy in Georgetown. Book on WhatsApp."
 >
 
-  
+  <!-- Hero -->
   <section
-    class="relative pt-40 pb-24 px-6 text-center"
+    class="relative pt-40 pb-16 px-6 text-center"
     style="background: radial-gradient(ellipse at 60% 0%, #2D1035 0%, #0D0A0F 70%);"
   >
     <div class="absolute inset-0 pointer-events-none opacity-[0.025]" style="background-image: linear-gradient(rgba(212,175,55,0.5) 1px, transparent 1px), linear-gradient(90deg, rgba(212,175,55,0.5) 1px, transparent 1px); background-size: 80px 80px;"></div>
     <div class="relative z-10 max-w-2xl mx-auto">
-      <p class="text-xs tracking-[0.35em] uppercase mb-4 gold-text" style="font-family:'Montserrat',sans-serif;">The Menu</p>
-      <h1 class="font-light leading-tight mb-4" style="font-family:'Cormorant Garamond',serif; font-size:clamp(2.5rem,6vw,5rem); color:#F5EFE6;">Our Services</h1>
+      <p class="eyebrow gold-text mb-4">Transparent Pricing. No Surprises.</p>
+      <h1 class="font-light leading-tight mb-4" style="font-family:'Cormorant Garamond',serif; font-size:clamp(2.5rem,6vw,5rem); color:#F5EFE6;">Services &amp; Prices</h1>
       <div class="section-divider mb-6"></div>
       <p class="text-sm leading-relaxed" style="font-family:'Montserrat',sans-serif; font-weight:400; color:#D4C9B5;">
-        Every treatment is designed to give you a specific result —<br class="hidden sm:block" /> delivered by experts who have made this their craft.
+        Every treatment below is delivered after a proper consultation, explained step-by-step,<br class="hidden sm:block" /> and priced openly — because you should know exactly what you're investing in.
       </p>
     </div>
   </section>
 
-  
+  <!-- Category anchor nav -->
+  <nav class="sticky top-20 z-40 py-4 px-6 border-y" style="background: rgba(13,10,15,0.95); backdrop-filter: blur(20px); border-color:rgba(212,175,55,0.12);" aria-label="Service categories">
+    <div class="max-w-7xl mx-auto flex gap-6 overflow-x-auto whitespace-nowrap" style="scrollbar-width:none;">
+      {serviceCategories.map((cat) => (
+        <a href={`#${cat.id}`} class="nav-link" style="font-size:0.66rem;">{cat.label}</a>
+      ))}
+    </div>
+  </nav>
+
+  <!-- Categories -->
   {serviceCategories.map((cat, i) => (
     <section
       id={cat.id}
-      class="py-24 px-6"
-      style={`background: ${i % 2 === 0 ? '#0D0A0F' : '#0A0710'};`}
+      class="py-20 px-6"
+      style={`background: ${i % 2 === 0 ? '#0D0A0F' : '#0A0710'}; scroll-margin-top: 130px;`}
     >
       <div class="max-w-7xl mx-auto">
         <!-- Category Header -->
-        <div class="mb-14 lg:flex lg:items-end lg:justify-between">
-          <div>
-            <p class="text-xs tracking-[0.25em] uppercase mb-2 gold-text" style="font-family:'Montserrat',sans-serif;">0{i + 1}</p>
-            <h2 class="font-light leading-tight" style="font-family:'Cormorant Garamond',serif; font-size:clamp(1.8rem,4vw,3rem); color:#F5EFE6;">{cat.label}</h2>
-            <p class="text-sm mt-2 italic" style="font-family:'Cormorant Garamond',serif; color:#C4AE8E; font-size:1rem;">{cat.tagline}</p>
-          </div>
-          <a
-            href={whatsappUrl}
-          >Book This Service</a>
+        <div class="mb-10 max-w-3xl">
+          <p class="text-xs tracking-[0.25em] uppercase mb-2 gold-text" style="font-family:'Montserrat',sans-serif;">0{i + 1}</p>
+          <h2 class="font-light leading-tight" style="font-family:'Cormorant Garamond',serif; font-size:clamp(1.8rem,4vw,3rem); color:#F5EFE6;">{cat.label}</h2>
+          <p class="text-base mt-2 italic gold-text" style="font-family:'Cormorant Garamond',serif;">{cat.tagline}</p>
+          <p class="body-copy mt-4">{cat.intro}</p>
         </div>
 
-        
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <!-- Price menu -->
+        <div class="luxury-card rounded-sm divide-y" style="--tw-divide-opacity:1;">
           {cat.services.map((svc) => (
-            <div class="luxury-card rounded-sm p-7">
-              <div class="flex justify-between items-start mb-4">
-                <h3 class="font-light leading-snug pr-4" style="font-family:'Cormorant Garamond',serif; font-size:1.15rem; color:#F5EFE6;">{svc.name}</h3>
-                <span class="text-xs shrink-0 px-2 py-1 rounded-sm" style="font-family:'Montserrat',sans-serif; background:rgba(212,175,55,0.12); color:#E8CC6A; border:1px solid rgba(212,175,55,0.3); white-space:nowrap;">{svc.duration}</span>
-              </div>
-              <p class="leading-relaxed" style="font-family:'Montserrat',sans-serif; color:#C4A882; font-weight:400; font-size:0.875rem; line-height:1.75;">{svc.desc}</p>
+            <div class="flex items-center justify-between gap-4 px-6 sm:px-8 py-4 border-b last:border-b-0" style="border-color:rgba(212,175,55,0.08);">
+              <span class="text-sm" style="font-family:'Montserrat',sans-serif; font-weight:400; color:#E9E0D2; font-size:0.875rem;">{svc.name}</span>
+              <span class="flex items-center gap-4 shrink-0">
+                <span class="text-sm font-medium gold-text" style="font-family:'Montserrat',sans-serif; white-space:nowrap;">{formatPrice(svc.price)}</span>
+                <a
+                  href={bookLink(svc.name)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  class="nav-link hidden sm:inline-flex items-center gap-1.5"
+                  style="font-size:0.62rem;"
+                  aria-label={`Book ${svc.name} on WhatsApp`}
+                >
+                  Book
+                  <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-3 h-3" aria-hidden="true">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3"/>
+                  </svg>
+                </a>
+              </span>
             </div>
           ))}
+        </div>
+
+        <div class="mt-8">
+          <a
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            class="btn-outline-gold text-xs px-8 py-3"
+          >Ask About {cat.label}</a>
         </div>
       </div>
     </section>
   ))}
 
-  
+  <!-- Bottom CTA -->
   <section class="py-24 px-6 text-center" style="background: radial-gradient(ellipse at center, #1A0A1E 0%, #0D0A0F 70%);">
     <div class="max-w-xl mx-auto">
       <div class="section-divider mb-8"></div>
-      <h2 class="font-light mb-4" style="font-family:'Cormorant Garamond',serif; font-size:clamp(1.8rem,4vw,2.8rem); color:#F5EFE6;">Ready to experience the difference?</h2>
-      <p class="text-sm mb-10" style="font-family:'Montserrat',sans-serif; font-weight:400; color:#C4A882;">Reserve instantly on WhatsApp — we respond fast, and we'll make sure every detail is ready for your arrival.</p>
+      <h2 class="font-light mb-4" style="font-family:'Cormorant Garamond',serif; font-size:clamp(1.8rem,4vw,2.8rem); color:#F5EFE6;">Not sure which treatment is right for you?</h2>
+      <p class="text-sm mb-10" style="font-family:'Montserrat',sans-serif; font-weight:400; color:#C4A882;">Take the 30-second Beauty Plan quiz and a specialist will recommend the exact treatment for your goal — free, on WhatsApp.</p>
       <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-        <a
-          href={whatsappUrl}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn-gold text-xs px-9 py-4 w-full sm:w-auto justify-center"
-        >Book via WhatsApp</a>
+        <a href="/beauty-plan" class="btn-gold text-xs px-9 py-4 w-full sm:w-auto justify-center">Get My Free Beauty Plan</a>
         <a
           href={daysmartUrl}
           target="_blank"
