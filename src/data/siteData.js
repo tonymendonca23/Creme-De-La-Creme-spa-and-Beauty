@@ -56,8 +56,8 @@ export const socials = [
 // ─────────────────────────────────────────────
 export const businessHours = [
   { day: "Monday – Friday", time: "10:00 AM – 6:00 PM" },
-  { day: "Saturday",        time: "9:30 AM – 7:00 PM"  },
-  { day: "Sunday",          time: "10:00 AM – 6:00 PM" },
+  { day: "Saturday",        time: "10:00 AM – 3:00 PM" },
+  { day: "Sunday",          time: "Closed"             },
 ];
 
 // ─────────────────────────────────────────────
@@ -493,7 +493,7 @@ export const faqs = [
   },
   {
     q: "Where is Crème De La Crème Spa & Beauty located?",
-    a: "We're on Delph Avenue, between Duncan & William Street, Campbellville, Georgetown, Guyana. We're open seven days a week, and many international clients visit us while in Guyana — we also offer post-surgery recovery and travel care packages.",
+    a: "We're on Delph Avenue, between Duncan & William Street, Campbellville, Georgetown, Guyana. We're open Monday to Friday 10 AM – 6 PM and Saturday 10 AM – 3 PM. Many international clients visit us while in Guyana — we also offer post-surgery recovery and travel care packages.",
   },
   {
     q: "Will my treatment be explained before it starts?",
